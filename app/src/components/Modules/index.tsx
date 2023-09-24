@@ -15,6 +15,18 @@ export default function LandingPage({ slug }: { slug: string }) {
         staleTime: 1000 * 60,
     });
 
+    // This was used in past but make calls at each refresh, it's nice because it's typed but not useful.
+    // In the above example I need to specify all the type the type query.
+    // const { data, isFetching, isLoading } = useAllLandingPageQuery(
+    //     graphqlRequestClient,
+    //     { slug },
+    //     {
+    //         queryFn: () => graphqlRequestClient.request(AllLandingPageDocument, { slug }),
+    //         staleTime: 1000 * 60,
+    //         enabled: true,
+    //     },
+    // );
+
     if (isLoading) {
         return <div>Loading</div>;
     }
