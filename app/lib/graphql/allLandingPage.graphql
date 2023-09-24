@@ -1,0 +1,33 @@
+query allLandingPage($slug: String!) {
+    allLandingPage(where: { slug: { current: { eq: $slug } } }) {
+        title
+        slug {
+            current
+            source
+        }
+        modules {
+            __typename
+            ... on Hero {
+                _type
+                title {
+                    value
+                }
+            }
+            ... on Features {
+                title {
+                    value
+                }
+                features {
+                    title {
+                        value
+                    }
+                    icon {
+                        asset {
+                            url
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
